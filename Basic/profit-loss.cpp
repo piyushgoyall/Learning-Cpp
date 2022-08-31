@@ -1,3 +1,4 @@
+//wap to calculate profit and loss percent on the basis of cost and sale price.
 #include<iostream>
 using namespace std;
 int main()
