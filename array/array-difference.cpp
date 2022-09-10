@@ -1,3 +1,4 @@
+//wap to enter two arrays and print their difference in a third array.
 #include<iostream>
 using namespace std;
 class array
