@@ -1,4 +1,4 @@
-//wap to find maximum and minimum element in an array.
+//wap to find maximum element in an array.
 #include<iostream>
 using namespace std;
 class array
