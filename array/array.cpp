@@ -1,3 +1,4 @@
+//wap to enter and print elements of array.
 #include<iostream>
 using namespace std;
 class array
