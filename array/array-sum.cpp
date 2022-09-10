@@ -1,3 +1,4 @@
+//wap to enter two arrays and print their sum in a third array.
 #include<iostream>
 using namespace std;
 class array
