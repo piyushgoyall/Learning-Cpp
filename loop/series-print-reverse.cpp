@@ -1,4 +1,4 @@
-//wap to print all natural numbers from 1 to n
+//wap to print all natural numbers in reverse(from n to 1).
 #include<iostream>
 using namespace std;
 class print
