@@ -12,7 +12,6 @@ int sort(int a[],int n)
 		{
 			if(a[j] < a[i])
 			{
-				
 				temp=a[i];
 				a[i] = a[j];
 				a[j] = temp;
