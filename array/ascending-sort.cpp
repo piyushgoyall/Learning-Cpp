@@ -25,16 +25,16 @@ int main()
 {
 	int a[100],i,n,j;
 	cout<<"Enter size of the array: ";
-    cin>>n;
-    cout<<"\n";
-    for(i=0; i<n; i++) 
-    {
-        cout<<"Enter element for arr["<<i<<"] : ";
+    	cin>>n;
+    	cout<<"\n";
+    	for(i=0; i<n; i++) 
+    	{
+        	cout<<"Enter element for arr["<<i<<"] : ";
 		cin>>a[i];
-    }
-    cout<<"\n";
-    cout<<"Sorted array : ";
-    cout<<"\n";
+    	}
+    	cout<<"\n";
+    	cout<<"Sorted array : ";
+    	cout<<"\n";
    	sort(a,n);
     
 }
