@@ -4,20 +4,20 @@ using namespace std;
 int array_add(int arr[], int start, int N);
 int main()
 {
-    int arr[100];
-    int N, i;
-    cout<<"Enter size of the array: ";
-    cin>>N;
-    cout<<"\n";
-    for(i=0; i<N; i++) 
-    {
-        cout<<"Enter element for arr["<<i<<"] : ";
+    	int arr[100];
+    	int N, i;
+    	cout<<"Enter size of the array: ";
+   	cin>>N;
+   	cout<<"\n";
+    	for(i=0; i<N; i++) 
+    	{
+        	cout<<"Enter element for arr["<<i<<"] : ";
 		cin>>arr[i];
-    }
-    cout<<"\n";
-    cout<<"Sum of all elements : ";
-    int sum = array_add(arr, 0, N);
-    cout<<sum;
+    	}
+    	cout<<"\n";
+    	cout<<"Sum of all elements : ";
+    	int sum = array_add(arr, 0, N);
+    	cout<<sum;
 }
 int array_add(int arr[], int start, int N)
 {
