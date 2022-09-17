@@ -14,9 +14,9 @@ int main()
 		cin>>arr[i];
 	}
 	cout<<"\n";
-    cout<<"Minimum element : ";
-    int k = array_min(arr, 0, N);
-    cout<<k;
+    	cout<<"Minimum element : ";
+    	int k = array_min(arr, 0, N);
+    	cout<<k;
 }
 int array_min(int arr[], int start, int N)
 {
