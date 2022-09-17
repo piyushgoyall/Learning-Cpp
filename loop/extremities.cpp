@@ -11,7 +11,7 @@ int main()
 	cout<<"Last digit : "<<rem;
 	cout<<"\n";
 	cout<<"\n";
-	while(num>1)
+	while(num>0)
 	{
 		r=num%10;
 		num=num/10;
