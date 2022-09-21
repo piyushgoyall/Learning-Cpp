@@ -1,5 +1,5 @@
 //wap to enter a string, search a word and print position of all occurreneces of the word.
-// P.S : word here could be anything like search for ik or hdj etc in the string.
+// P.S : word here could be anything like search for ik or hdj etc. within the string.
 #include<iostream>
 #include<string.h>
 using namespace std;
