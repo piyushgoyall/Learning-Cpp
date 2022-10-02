@@ -52,6 +52,6 @@ int main()
 	ob.call();
 	cout<<"\n";
 	cout<<"\n";
-    C pp;
-    pp.name();
+    	C pp;
+    	pp.name();
 }
