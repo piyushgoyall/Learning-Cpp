@@ -1,4 +1,4 @@
-// Octal to Decimal
+// Hexadecimal to Decimal
 
 #include <bits/stdc++.h>
 using namespace std;
