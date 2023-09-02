@@ -1,4 +1,5 @@
 // Searching in arrays
+// Linear search
 
 #include <bits/stdc++.h>
 using namespace std;
