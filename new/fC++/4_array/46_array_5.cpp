@@ -1,5 +1,4 @@
 // Binary Search
-// Not working for large values
 
 #include <bits/stdc++.h>
 using namespace std;
