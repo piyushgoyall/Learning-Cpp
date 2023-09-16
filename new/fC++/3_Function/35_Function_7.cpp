@@ -26,7 +26,6 @@ int btd(int num)
 //     return sum;
 // }
 
-
 int main()
 {
     int bin;
@@ -34,6 +33,3 @@ int main()
     cout << btd(bin) << endl;
     return 0;
 }
-
-
-

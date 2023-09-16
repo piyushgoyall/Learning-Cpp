@@ -8,8 +8,8 @@ int main()
     array[2] = 30;
     array[3] = 40;
 
-    int arr[4] = {10,20,30,40};
-    cout<<array[3]<<endl;
-    cout<<arr[2];
+    int arr[4] = {10, 20, 30, 40};
+    cout << array[3] << endl;
+    cout << arr[2];
     return 0;
 }

@@ -1,12 +1,12 @@
-// Print all prime numbers between two given numbers 
+// Print all prime numbers between two given numbers
 
 #include <bits/stdc++.h>
 using namespace std;
 bool isprime(int num)
 {
-    for(int i=2;i<=sqrt(num);i++)
+    for (int i = 2; i <= sqrt(num); i++)
     {
-        if((num%i)==0)
+        if ((num % i) == 0)
         {
             return false;
         }
@@ -15,13 +15,13 @@ bool isprime(int num)
 }
 int main()
 {
-    int num1,num2;
-    cin>>num1>>num2;
-    for(int i=num1;i<=num2;i++)
+    int num1, num2;
+    cin >> num1 >> num2;
+    for (int i = num1; i <= num2; i++)
     {
-        if(isprime(i))
+        if (isprime(i))
         {
-            cout<<i<<endl;
+            cout << i << endl;
         }
     }
     return 0;

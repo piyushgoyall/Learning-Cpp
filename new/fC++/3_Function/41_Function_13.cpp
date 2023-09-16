@@ -9,7 +9,7 @@ int reverse(int n)
     {
         int ld = n % 10;
         ans = ans * 10 + ld;
-        n = n/10;
+        n = n / 10;
     }
     return ans;
 }
@@ -91,7 +91,7 @@ int addbin(int a, int b)
     }
     if (carry == 1)
     {
-        ans = ans*10 + 1;
+        ans = ans * 10 + 1;
     }
     int ans1 = reverse(ans);
     return (ans1);
