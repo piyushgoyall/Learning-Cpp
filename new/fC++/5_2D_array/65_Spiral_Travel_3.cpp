@@ -15,12 +15,38 @@ int main()
         }
     }
     int rs = 0;
-    int cs = m-1;
-    int re = n-1;
-    int ce = 0;
-    for (int i = 0; i < n; i++)
+    int cs = 0;
+    int re = n - 1;
+    int ce = m - 1;
+    while (rs <= re && cs <= ce)
     {
-        
+        // for start row
+        for (int i = cs; i <= ce; i++)
+        {
+            cout << arr[rs][i] << " ";
+        }
+        rs++;
+
+        // for column end
+        for (int j = rs; j <= re; j++)
+        {
+            cout << arr[j][ce] << " ";
+        }
+        ce--;
+
+        // for end row
+        for (int i = ce; i >= cs; i--)
+        {
+            cout << arr[re][i] << " ";
+        }
+        re--;
+
+        // for column end
+        for (int j = re; j >= rs; j--)
+        {
+            cout << arr[j][cs] << " ";
+        }
+        cs++;
     }
     return 0;
 }
