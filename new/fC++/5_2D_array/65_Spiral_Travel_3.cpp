@@ -22,7 +22,7 @@ int main()
     {
         // for start row
         for (int i = cs; i <= ce; i++)
-        {
+        {          
             cout << arr[rs][i] << " ";
         }
         rs++;
