@@ -31,17 +31,37 @@ int main()
             cin >> brr[i][j];
         }
     }
-    int res[a][c], i, j;
+    int res[a][c], i, j, k;
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            res[i][j] = 0;
+        }
+    }
     for (i = 0; i < a; i++)
     {
-        int sum = 0;
         for (j = 0; j < c; j++)
         {
-            cout << "- " << arr[i][j] << " - " << brr[j][i] << " -" << endl;
-            sum += arr[i][j] * brr[j][i];
-            cout << "- " << sum << " -" << endl;
+            int sum = 0;
+            for (k = 0; k < b; k++)
+            {
+                // cout << "- " << arr[i][j] << " - " << brr[j][i] << " -" << endl;
+                sum += arr[i][k] * brr[k][j];
+                // cout << "- " << sum << " -" << endl;
+            }
+            res[i][j] = sum;
         }
-        res[i][j] = sum;
+    }
+
+    cout <<"Resultant Matrix: "<< endl;
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            cout << res[i][j] << "    ";
+        }
+        cout << endl;
     }
     return 0;
 }

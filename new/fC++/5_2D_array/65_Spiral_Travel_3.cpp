@@ -26,7 +26,6 @@ int main()
             cout << arr[rs][i] << " ";
         }
         rs++;
-
         // for column end
         for (int j = rs; j <= re; j++)
         {
