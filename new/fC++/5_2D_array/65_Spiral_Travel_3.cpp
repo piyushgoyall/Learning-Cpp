@@ -26,7 +26,7 @@ int main()
             cout << arr[rs][i] << " ";
         }
         rs++;
-        // for column end
+        // for end column 
         for (int j = rs; j <= re; j++)
         {
             cout << arr[j][ce] << " ";
@@ -40,7 +40,7 @@ int main()
         }
         re--;
 
-        // for column end
+        // for end column
         for (int j = re; j >= rs; j--)
         {
             cout << arr[j][cs] << " ";
