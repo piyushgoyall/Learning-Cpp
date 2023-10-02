@@ -15,6 +15,7 @@ int main()
     int x;
     cout << "Enter search element: ";
     cin >> x;
+
     int p = 0, q = c - 1;
     bool found = false;
     while (p < r && q >= 0)
