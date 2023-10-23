@@ -9,6 +9,8 @@ bool two(int n)
 
 int main()
 {
-    cout << two(14) << endl;
+    int x;
+    cin >> x;
+    cout << two(x) << endl;
     return 0;
 }
