@@ -5,7 +5,7 @@ using namespace std;
 int numberofones(int n)
 {
     int count = 0;
-    while (n)
+    while (n)  // while (n) means while (n!=0)
     {
         n = n & (n - 1);
         count++;
