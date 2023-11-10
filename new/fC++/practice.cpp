@@ -1,32 +1,41 @@
-// classes example
-#include <iostream>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
+// class Empty();
+// int main()
+// {
+//     cout<<sizeof(Empty);
+//     return 0;
+// }
 
-class Rectangle
-{
-    int width, height;
+// // classes example
+// #include <iostream>
+// using namespace std;
 
-public:
-    void set_values(int, int);
-    int area()
-    {
-        return width * height;
-    }
-};
+// class Rectangle
+// {
+//     int width, height;
 
-void Rectangle::set_values(int x, int y)
-{
-    width = x;
-    height = y;
-}
+// public:
+//     void set_values(int, int);
+//     int area()
+//     {
+//         return width * height;
+//     }
+// };
 
-int main()
-{
-    Rectangle rect;
-    rect.set_values(3, 4);
-    cout << "area: " << rect.area();
-    return 0;
-}
+// void Rectangle::set_values(int x, int y)
+// {
+//     width = x;
+//     height = y;
+// }
+
+// int main()
+// {
+//     Rectangle rect;
+//     rect.set_values(3, 4);
+//     cout << "area: " << rect.area();
+//     return 0;
+// }
 
 // #include <bits/stdc++.h>
 // const int MAX = 100;
