@@ -8,6 +8,7 @@ int unique(int arr[], int n)
     for (int i = 0; i < n; i++)
     {
         xorsum = xorsum ^ arr[i];
+        // cout << "- " << xorsum << " -" << endl;
     }
     return xorsum;
 }
