@@ -1,4 +1,5 @@
 // MERGE SORT
+// Complexity: nlog n
 
 #include <bits/stdc++.h>
 using namespace std;
