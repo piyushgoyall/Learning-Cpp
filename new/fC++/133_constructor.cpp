@@ -1,3 +1,7 @@
+// Default Copy Constructor does SHALLOW COPY(consider an object with some data members which point to some dynamically allocated memory, 
+// on coping shallow copy will copy the pointers but the location pointed is not copied.)
+// Whereas in Deep Copy(happens when we make a copy constructor ourselves, in this case both pointers and pointed address are copied).
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,18 +13,28 @@ public:
     int age;
     bool gender;
 
-//DEFAULT CONSTRUCTOR
+// DEFAULT CONSTRUCTOR
     Student()
     {
-        cout << "\nDefault Constructor";
+        cout << "\nDefault Constructor\n\n";
     }
 
 // PARAMETERIZED CONSTRUCTOR
     Student(string s, int a, bool g)
     {
+        cout << "Parameterised constructor" << endl;
         name = s;
         age = a;
         gender = g;
+    }
+
+// COPY CONSTRUCTOR (USER DEFINED)
+    Student(Student &a)
+    {
+        cout << "Copy constructor" << endl;
+        name = a.name;
+        age = a.age;
+        gender = a.gender;
     }
 
     void getName()
@@ -45,6 +59,9 @@ int main()
     a.printInfo();
 
     Student b;
+
+    Student c = a;
+    // c.printInfo();
 
     return 0;
 }
