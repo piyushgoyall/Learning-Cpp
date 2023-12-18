@@ -1,6 +1,6 @@
 // Find intersection point of 2 linked list.
+// Time complexity is length of longer list.
 
-// Append last k nodes of a linked list.
 
 #include <bits/stdc++.h>
 using namespace std;
