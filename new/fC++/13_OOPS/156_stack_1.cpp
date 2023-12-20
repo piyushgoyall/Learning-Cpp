@@ -44,6 +44,7 @@ public:
             cout << "No element in stack" << endl;
             return -1;
         }
+        return arr[top];
     }
 
     bool empty()
@@ -64,6 +65,6 @@ int main()
     st.pop();
     st.pop();
     st.pop();
-    cout<<st.empty()<<endl;
+    cout << st.empty() << endl;
     return 0;
 }
