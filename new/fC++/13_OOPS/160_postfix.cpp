@@ -1,4 +1,5 @@
 // Postfix Expression Evaluation.
+// Time Complexity is O(n) where n is length of string.
 
 #include <bits/stdc++.h>
 #include <stack>
