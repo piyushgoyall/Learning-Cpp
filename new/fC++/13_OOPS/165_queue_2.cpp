@@ -57,7 +57,7 @@ public:
     {
         if (front == NULL)
         {
-            cout << "Queue underflow" << endl;
+            cout << "No Element In Queue" << endl;
             return -1;
         }
         return front->data;
