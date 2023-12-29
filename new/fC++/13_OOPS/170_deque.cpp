@@ -10,5 +10,13 @@ int main()
     dq.push_front(4);
     for (auto i : dq)
         cout << i << " ";
+
+    cout << "\n";
+    
+    dq.pop_back();
+    dq.pop_front();
+    for (auto i : dq)
+        cout << i << " ";
+
     return 0;
 }
