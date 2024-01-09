@@ -1,7 +1,5 @@
 // Left View Of Binary Trees
 
-// Right View Of A Binary Tree
-
 #include <bits/stdc++.h>
 using namespace std;
 
