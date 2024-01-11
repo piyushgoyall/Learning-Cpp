@@ -75,6 +75,7 @@ int printNodesAtK(Node *root, Node *target, int k)
         }
         return 1 + dr;
     }
+    return -1;
 }
 
 int main()
