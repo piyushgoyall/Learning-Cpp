@@ -9,21 +9,36 @@
 using namespace std;
 int main()
 {
+    // set<int> s;
+    // s.insert(1);
+    // s.insert(2);
+    // s.insert(2);
+    // s.insert(3);
+    // // printing the element in the set
+    // for (auto i : s)
+    // {
+    //     cout << i << " ";
+    // }
+    // cout << "\n";
+    // for (auto i = s.begin(); i != s.end(); i++)
+    // {
+    //     cout << *i << " ";
+    // }
+    // cout << "\n";
+
+// TO PRINT THE SET IN REVERSE
     set<int> s;
     s.insert(1);
     s.insert(2);
     s.insert(2);
     s.insert(3);
-    // printing the element in the set
-    for (auto i : s)
-    {
-        cout << i << " ";
-    }
-    cout << "\n";
-    for (auto i = s.begin(); i != s.end(); i++)
+    // print in reverse
+    for (auto i = s.rbegin(); i != s.rend(); i++)
     {
         cout << *i << " ";
     }
     cout << "\n";
+    // Size of the set
+    cout << s.size();
     return 0;
 }
