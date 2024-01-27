@@ -49,7 +49,7 @@ public:
 
     bool empty()
     {
-        return top == -11;
+        return top == -1;
     }
 };
 
