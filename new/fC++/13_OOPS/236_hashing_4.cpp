@@ -26,6 +26,8 @@
 //               3) Push the value into vector corresponding to the horizontal distance(HD).
 //               4) Output the map.
 
+// Time Complexity: nlog(n)
+
 #include <iostream>
 #include <algorithm>
 #include <set>
