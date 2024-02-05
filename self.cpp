@@ -1,33 +1,65 @@
-// BUBBLE SORT
-#include <bits/stdc++.h>
+/* Here’s a list of some sorting algorithms worth looking into on your own time.
+Counting Sort
+Radix Sort
+Bucket Sort
+*/
+// OUTPUT : 1 3 5 7 9 8 6 4 2 
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
-int main()
-{
-    int n;
-    cin >> n;
 
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    for (int i = 0; i < n-1; i++)
-    {
-        for (int j = i + 1; j < n; j++)
-        {
-            if (arr[i] > arr[j])
-            {
-                swap(arr[i], arr[j]);
-            }
-        }
-    }
-    for (auto x : arr)
-    {
-        cout << x << " ";
-    }
+int compare(int a, int b) {
+  int r1 = a%2;
+  int r2 = b%2;
+  if (r1 == 0 && r2 == 0)
+    return a > b;
+  if (r1 == 1 && r2 == 1)
+    return a < b;
+  if (r1 == 0) // r2 == 1
     return 0;
+  else  // r1 == 1 & r2 == 0
+    return 1;
 }
+
+int main() {
+  vector<int> v = {1,2,3,4,5,6,7,8,9};
+  sort(v.begin(), v.end(), compare);
+
+  for (auto it : v) cout << it << " ";
+  return 0;
+}
+
+// // BUBBLE SORT
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int n;
+//     cin >> n;
+
+//     vector<int> arr(n);
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+
+//     for (int i = 0; i < n-1; i++)
+//     {
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             if (arr[i] > arr[j])
+//             {
+//                 swap(arr[i], arr[j]);
+//             }
+//         }
+//     }
+//     for (auto x : arr)
+//     {
+//         cout << x << " ";
+//     }
+//     return 0;
+// }
 
 // // SELECTION SORT
 // #include <bits/stdc++.h>
