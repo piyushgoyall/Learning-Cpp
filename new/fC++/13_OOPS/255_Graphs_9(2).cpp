@@ -1,23 +1,10 @@
-// What is a Connected Component
-// A connected component is a subgraph in which any two vertices are connected to each other by paths,
-// and which is connected to no additional vertices in the supergraph.
+// There are N friends numbered from 0 to N - 1. You have to chose 2 person such that they are not related to each other.
+// You are given information in the form of M pairs(X,Y) i.e. there is an link between friend X and Y.
+// Find out the number of ways in which 2 persons from different groups can be chosen.
 
 // IDEA
-// 1) Visit the nodes in a depth - first fashion.
-// 2) If the node is not visited, visit that node and its neighbour recursively.
-// Each time a unvisited node is found, a new component will be found.
-
-// Pseudocode;
-// For node u in nodes:
-//     if(!vis[u]){
-//         components.add(visit_component(u));
-//     }
-// Function visit_component(src){
-//     vis[src] = true;
-//     for v in adj[src]:
-//         visit_component(v)
-// }
-// Find the no of connected components in a graph and its size
+// - Find the components and their sizes.
+// - At i'th component choose one person from it and other person from the rest of the groups.
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -67,9 +54,19 @@ int main()
             components.push_back(get_comp(i));
         }
     }
+    
+    // for (auto i : components)
+    // {
+    //     cout << i << " ";
+    // }
+
+    long long ans = 0;
     for (auto i : components)
     {
-        cout << i << " ";
+        ans += i * (n - i);
     }
+
+    cout << (ans / 2);
+
     return 0;
 }
