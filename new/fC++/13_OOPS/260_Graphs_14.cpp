@@ -42,12 +42,22 @@ void primsMST(int source)
         {
             if (vis[it.first])
                 continue;
+
             if (dist[it.first] > it.second)
             {
-                s.insert({it.second, it.first});
+                if (dist[it.first] != INF)
+                    s.erase({dist[it.first], it.first});
                 dist[it.first] = it.second;
+                s.insert({dist[it.first], it.first});
                 parent[it.first] = x[1];
             }
+
+            // if (dist[it.first] > it.second)
+            // {
+            //     s.insert({it.second, it.first});
+            //     dist[it.first] = it.second;
+            //     parent[it.first] = x[1];
+            // }
         }
 
         // for (auto it : g[x[1]])
@@ -70,7 +80,6 @@ void primsMST(int source)
         //         s.insert({dist[it[0]], it[0]});
         //         parent[it[0]] = x[1];
         //     }
-        
     }
 }
 
