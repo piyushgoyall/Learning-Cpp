@@ -1,43 +1,115 @@
-// /* Here’s a list of some sorting algorithms worth looking into on your own time.
-// Counting Sort
-// Radix Sort
-// Bucket Sort
-// */
-
-// MERGE SORT
-
 #include <bits/stdc++.h>
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
-void merge(int arr[], int start, int mid, int end)
+
+
+int check(int arr[], int n,int d, int maxim)
 {
-  
+  int maxim = *max_element(arr, arr + n);
+
+  if (d >= n)
+  {
+    cout << maxim;
+  }
+
+  int new_max = maxim + *min_element(arr, arr + n);
+
+  int count = 0, sum = 0;
+  for (int i = 0; i < n; i++)
+  {
+    while (sum <= new_max && count <= d)
+    {
+      sum = sum + arr[i];
+    }
+    count++;
+    sum = 0;
+  }
+  t_check(count,d);
 }
 
-int merge_sort(int arr[], int start, int end)
-{
-  int mid = start + (end - start) / 2;
-  merge_sort(arr, start, mid);
-  merge_sort(arr, mid + 1, end);
 
-  merge(arr, start, mid, end);
+int t_check(int count,int d)
+{
+  while(count<=d)
+  {
+    check()
+  }
 }
+
 
 int main()
 {
-  int n;
-  cout << "Enter array size: ";
-  cin >> n;
-
+  int n, d;
+  cin >> n >> d;
   int arr[n];
   for (int i = 0; i < n; i++)
   {
     cin >> arr[i];
   }
 
-  merge_sort(arr, 0, n - 1);
+  int temp[n];
+  for (int i = 0; i < n; i++)
+  {
+    temp[i] = arr[i];
+  }
+  // copy(begin(arr), end(arr), begin(temp));
+
+  cout<<result(arr,n);
+  
+  else
+  {
+    int ans = check(arr, n,d, maxim);
+    // while(ans < d)
+    // {
+    //   check(arr,n,new_max);
+    // }
+  }
+
   return 0;
 }
+
+// // /* Here’s a list of some sorting algorithms worth looking into on your own time.
+// // Counting Sort
+// // Radix Sort
+// // Bucket Sort
+// // */
+
+// // MERGE SORT
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// void merge(int arr[], int start, int mid, int end)
+// {
+
+// }
+
+// int merge_sort(int arr[], int start, int end)
+// {
+//   int mid = start + (end - start) / 2;
+//   merge_sort(arr, start, mid);
+//   merge_sort(arr, mid + 1, end);
+
+//   merge(arr, start, mid, end);
+// }
+
+// int main()
+// {
+//   int n;
+//   cout << "Enter array size: ";
+//   cin >> n;
+
+//   int arr[n];
+//   for (int i = 0; i < n; i++)
+//   {
+//     cin >> arr[i];
+//   }
+
+//   merge_sort(arr, 0, n - 1);
+//   return 0;
+// }
 
 // // OUTPUT : 1 3 5 7 9 8 6 4 2
 // #include <iostream>
