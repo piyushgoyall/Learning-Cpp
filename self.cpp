@@ -1,43 +1,48 @@
 #include <bits/stdc++.h>
-#include <algorithm>
-#include <iterator>
 using namespace std;
 
-
-
-int check(int arr[], int n,int d, int maxim)
+int repeat(int count,int d)
 {
-  int maxim = *max_element(arr, arr + n);
+  while()
+}
 
-  if (d >= n)
-  {
-    cout << maxim;
-  }
-
+int t_check(int arr[], int n, int d, int maxim)
+{
   int new_max = maxim + *min_element(arr, arr + n);
-
   int count = 0, sum = 0;
   for (int i = 0; i < n; i++)
   {
-    while (sum <= new_max && count <= d)
+    while (sum <= new_max)
     {
       sum = sum + arr[i];
     }
     count++;
     sum = 0;
   }
-  t_check(count,d);
+  repeat(count,d);
+  // if(count<=d)
+  // {
+  //   return count;
+  // }
+  // else
+  // {
+
+  // }
 }
 
-
-int t_check(int count,int d)
+int check(int arr[], int n, int d)
 {
-  while(count<=d)
+  int maxim = *max_element(arr, arr + n);
+  if (n <= d)
   {
-    check()
+    return maxim;
   }
+  else
+  {
+    t_check(arr, n, d, maxim);
+  }
+  return;
 }
-
 
 int main()
 {
@@ -48,27 +53,77 @@ int main()
   {
     cin >> arr[i];
   }
-
-  int temp[n];
-  for (int i = 0; i < n; i++)
-  {
-    temp[i] = arr[i];
-  }
-  // copy(begin(arr), end(arr), begin(temp));
-
-  cout<<result(arr,n);
-  
-  else
-  {
-    int ans = check(arr, n,d, maxim);
-    // while(ans < d)
-    // {
-    //   check(arr,n,new_max);
-    // }
-  }
-
+  cout << check(arr, n, d);
   return 0;
 }
+
+// #include <bits/stdc++.h>
+// #include <algorithm>
+// #include <iterator>
+// using namespace std;
+
+// int check(int arr[], int n,int d, int maxim)
+// {
+//   int maxim = *max_element(arr, arr + n);
+
+//   if (d >= n)
+//   {
+//     cout << maxim;
+//   }
+
+//   int new_max = maxim + *min_element(arr, arr + n);
+
+//   int count = 0, sum = 0;
+//   for (int i = 0; i < n; i++)
+//   {
+//     while (sum <= new_max && count <= d)
+//     {
+//       sum = sum + arr[i];
+//     }
+//     count++;
+//     sum = 0;
+//   }
+//   t_check(count,d);
+// }
+
+// int t_check(int count,int d)
+// {
+//   while(count<=d)
+//   {
+//     check()
+//   }
+// }
+
+// int main()
+// {
+//   int n, d;
+//   cin >> n >> d;
+//   int arr[n];
+//   for (int i = 0; i < n; i++)
+//   {
+//     cin >> arr[i];
+//   }
+
+//   int temp[n];
+//   for (int i = 0; i < n; i++)
+//   {
+//     temp[i] = arr[i];
+//   }
+//   // copy(begin(arr), end(arr), begin(temp));
+
+//   cout<<result(arr,n);
+
+//   else
+//   {
+//     int ans = check(arr, n,d, maxim);
+//     // while(ans < d)
+//     // {
+//     //   check(arr,n,new_max);
+//     // }
+//   }
+
+//   return 0;
+// }
 
 // // /* Here’s a list of some sorting algorithms worth looking into on your own time.
 // // Counting Sort
