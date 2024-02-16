@@ -1,3 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Arr
+{
+    int *dyn;
+    int idx;
+    int capacity;
+
+public:
+    Arr(int size)
+    {
+        dyn = new int[size];
+        idx = 0;
+        capacity = size;
+    }
+    
+    void resize()
+    {
+        int newCap = capacity * 2;
+        int *temp = new int[newCap];
+        for (int i = 0; i < idx; i++)
+            temp[i] = dyn[i];
+        delete[] dyn;
+        dyn = temp;
+        capacity = capacity * 2;
+    }
+
+    void insert(int val)
+    {
+        if (idx < capacity)
+        {
+            dyn[idx] = val;
+            idx = idx + 1;
+        }
+        else
+        {
+            resize();
+            dyn[idx] = val;
+            idx = idx + 1;
+        }
+    }
+    void print()
+    {
+        // for (int i = 0; i < capacity; i++)
+        for (int i = 0; i < idx; i++)
+        {
+            cout << dyn[i] << " ";
+        }
+    }
+    ~Arr()
+    {
+        delete[] dyn;
+    }
+};
+
+int main()
+{
+    Arr a1(1);
+    a1.insert(1);
+    a1.insert(2);
+    a1.print();
+
+    return 0;
+}
+
 // #include <bits/stdc++.h>
 // using namespace std;
 // class Empty();
