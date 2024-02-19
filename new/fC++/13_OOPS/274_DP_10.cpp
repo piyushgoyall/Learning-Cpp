@@ -1,6 +1,6 @@
 // Optimal Game Stratergy
 // Problem: Rahul and Neha are playing a coin game. They are given n coins with values X1, X2.... Xn where 'n' is always even.
-// They take alternate terms. In each turn, a player picks either the first coin or the last coin from the row and removes it from the row.
+// They take alternate turns. In each turn, a player picks either the first coin or the last coin from the row and removes it from the row.
 // The value of coin is received by that player. Determine the maximum value that Rahul can win if he moves first. Both the players play optimally.
 // Ex: Input: 4
 //            1 2 3 4
@@ -36,7 +36,7 @@ int solve(int i,int j)
     if(i>j)
         return 0;
     
-    if(dp[i][j] != 1)
+    if(dp[i][j] != -1)
         return dp[i][j];
 
     int l = a[i] + min(solve(i+2,j), solve(i+1,j-1));
