@@ -1,68 +1,170 @@
+// Linked List
 #include <bits/stdc++.h>
 using namespace std;
 
-class Arr
+class Node
 {
-    int *dyn;
-    int idx;
-    int capacity;
+public:
+    int val;
+    Node *next;
+
+    Node()
+    {
+        next = NULL;
+    }
+};
+
+class LinkedList
+{
+    Node *head;
 
 public:
-    Arr(int size)
+    LinkedList()
     {
-        dyn = new int[size];
-        idx = 0;
-        capacity = size;
-    }
-    
-    void resize()
-    {
-        int newCap = capacity * 2;
-        int *temp = new int[newCap];
-        for (int i = 0; i < idx; i++)
-            temp[i] = dyn[i];
-        delete[] dyn;
-        dyn = temp;
-        capacity = capacity * 2;
+        head = NULL;
     }
 
-    void insert(int val)
+    Node *getHead()
     {
-        if (idx < capacity)
+        return head;
+    }
+
+    bool isEmpty()
+    {
+        if (head == NULL)
+            return true;
+        else
+            return false;
+    }
+
+    void printList()
+    {
+        if (isEmpty())
+            cout << "Empty List";
+        Node *it = head;
+        cout << "List: ";
+        while (it != NULL)
         {
-            dyn[idx] = val;
-            idx = idx + 1;
+            cout << it->val << " --> ";
+            it = it->next;
+        }
+        cout << "NULL";
+    }
+
+    void insertAtHead(int data)
+    {
+        Node *n = new Node();
+        n->val = data;
+        n->next = head;
+        head = n;
+    }
+
+    void insertAtTail(int data)
+    {
+        Node *n = new Node();
+        n->val = data;
+        n->next = NULL;
+
+        if (head == NULL)
+        {
+            head = n;
         }
         else
         {
-            resize();
-            dyn[idx] = val;
-            idx = idx + 1;
+            Node *temp = head;
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            temp->next = n;
         }
-    }
-    void print()
-    {
-        // for (int i = 0; i < capacity; i++)
-        for (int i = 0; i < idx; i++)
-        {
-            cout << dyn[i] << " ";
-        }
-    }
-    ~Arr()
-    {
-        delete[] dyn;
     }
 };
 
 int main()
 {
-    Arr a1(1);
-    a1.insert(1);
-    a1.insert(2);
-    a1.print();
+    LinkedList l1;
+    // cout << l1.getHead() << endl;
+    // cout << l1.isEmpty() << endl;
+    l1.insertAtHead(4);
+    l1.insertAtTail(5);
+    l1.insertAtHead(3);
+    l1.insertAtHead(2);
+    l1.insertAtHead(1);
+    l1.insertAtHead(0);
 
+    l1.insertAtTail(6);
+    l1.insertAtTail(7);
+    l1.insertAtTail(8  );
+    l1.printList();
     return 0;
 }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Arr
+// {
+//     int *dyn;
+//     int idx;
+//     int capacity;
+
+// public:
+//     Arr(int size)
+//     {
+//         dyn = new int[size];
+//         idx = 0;
+//         capacity = size;
+//     }
+
+//     void resize()
+//     {
+//         int newCap = capacity * 2;
+//         int *temp = new int[newCap];
+//         for (int i = 0; i < idx; i++)
+//             temp[i] = dyn[i];
+//         delete[] dyn;
+//         dyn = temp;
+//         capacity = capacity * 2;
+//     }
+
+//     void insert(int val)
+//     {
+//         if (idx < capacity)
+//         {
+//             dyn[idx] = val;
+//             idx = idx + 1;
+//         }
+//         else
+//         {
+//             resize();
+//             dyn[idx] = val;
+//             idx = idx + 1;
+//         }
+//     }
+//     void print()
+//     {
+//         // for (int i = 0; i < capacity; i++)
+//         for (int i = 0; i < idx; i++)
+//         {
+//             cout << dyn[i] << " ";
+//         }
+//     }
+//     ~Arr()
+//     {
+//         delete[] dyn;
+//     }
+// };
+
+// int main()
+// {
+//     Arr a1(1);
+//     a1.insert(1);
+//     a1.insert(2);
+//     a1.print();
+
+//     return 0;
+// }
 
 // #include <bits/stdc++.h>
 // using namespace std;
