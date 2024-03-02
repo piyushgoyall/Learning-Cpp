@@ -79,6 +79,11 @@ public:
             temp->next = n;
         }
     }
+
+    void insertAt(int data,int pos)
+    {
+        
+    }
 };
 
 int main()
@@ -93,9 +98,12 @@ int main()
     l1.insertAtHead(1);
     l1.insertAtHead(0);
 
-    l1.insertAtTail(6);
-    l1.insertAtTail(7);
-    l1.insertAtTail(8  );
+    // l1.insertAtTail(6);
+    // l1.insertAtTail(7);
+    // l1.insertAtTail(8);
+
+    l1.insertAt(99, 3);
+
     l1.printList();
     return 0;
 }

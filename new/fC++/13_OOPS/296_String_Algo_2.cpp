@@ -13,9 +13,6 @@
 // string substr(size_t pos = 0, size_t len = npos);
 // Returns the string that starts at character position pos and spans len characters(or until the end of the string, whichever comes frist.)
 
-
-
-
 // Time Complexity: O(ST)
 #include <bits/stdc++.h>
 using namespace std;
