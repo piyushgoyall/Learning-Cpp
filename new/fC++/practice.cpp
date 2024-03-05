@@ -37,6 +37,18 @@ public:
             return false;
     }
 
+    int getLength()
+    {
+        Node *temp = head;
+        int count = 0;
+        while (temp != NULL)
+        {
+            temp = temp->next;
+            count++;
+        }
+        return count;
+    }
+
     void printList()
     {
         if (isEmpty())
@@ -80,10 +92,45 @@ public:
         }
     }
 
-    void insertAt(int data,int pos)
+    void insertAt(int data, int pos)
     {
+        if (isEmpty())
+        {
+            insertAtHead(data);
+            return;
+        }
+        else
+        {
+            Node *temp = new Node();
+            temp->val = data;
+            int count = 1;
+            Node *idx = head;
 
-        
+            while (idx->next != NULL)
+            {
+                if (count == pos)
+                {
+                    Node *prev = idx->next;
+                    idx->next = temp;
+                    temp->next = prev;
+                    return;
+                }
+                else
+                    count++;
+
+                idx = idx->next;
+            }
+
+            // while (count != pos)
+            // {
+            //     idx = idx->next;
+            //     count++;
+            // }
+            // Node *prev = idx->next;
+            // idx->next = temp;
+            // temp->next = prev;
+            // return;
+        }
     }
 };
 
@@ -106,6 +153,8 @@ int main()
     l1.insertAt(99, 3);
 
     l1.printList();
+    cout << "\n"
+         << l1.getLength();
     return 0;
 }
 

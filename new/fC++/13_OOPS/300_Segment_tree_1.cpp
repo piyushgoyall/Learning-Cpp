@@ -31,12 +31,12 @@
 //               0  1  2  3  4  5  6   7
 // Prefix Sum: [5, 8, 10, 14, 15, 23, 29, 39]
 
-//UPDATE the 4'th indexed element to 13.
-// Original Array becomes: [5, 3, 2, 4, 13, 8, 6, 10]
-//                          0  1  2  3   4  5  6   7
-// Prefix Sum Array: [5, 8, 10, 14, 27, 35, 41, 51]     (Here the 4, 5, 6 and 7'th elements have changed)
-//                    0  1   2   3   4   5   6   7
-// Time Complexity: O(n)
+// UPDATE the 4'th indexed element to 13.
+//  Original Array becomes: [5, 3, 2, 4, 13, 8, 6, 10]
+//                           0  1  2  3   4  5  6   7
+//  Prefix Sum Array: [5, 8, 10, 14, 27, 35, 41, 51]     (Here the 4, 5, 6 and 7'th elements have changed)
+//                     0  1   2   3   4   5   6   7
+//  Time Complexity: O(n)
 
 // TIME COMPLEXITY
 // QUERY = O(1)
@@ -53,9 +53,45 @@
 // Given array: [5, 3, 2, 4, 1, 8, 6, 10]
 //               0  1  2  3  4  5  6   7
 
-// Power of Number 2 in programming 
+// Power of Number 2 in programming
 // -> Binary Representation of numbers -> All operation be it sum/ subtraction/ product, all are accomplished in O(1).
 
 // -> Division of Array (Divide and conquer)
 
+#include <bits/stdc++.h>
+using namespace std;
 
+const int N = 1e5 + 2;
+int a[N], tree[4 * N];
+
+void build(int node, int st, int en)
+{
+    if (st == en)
+    {
+        tree[node] = a[st];
+        return;
+    }
+    int mid = (st + en) / 2;
+    build(2 * node, st, mid);
+    build(2 * node + 1, mid + 1, en);
+
+    tree[node] = tree[2 * node] + tree[2 * node + 1];
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+
+    build(1, 0, n - 1);
+    for (int i = 1; i < 15; i++)
+    {
+        cout << tree[i] << endl;
+    }
+    return 0;
+}
