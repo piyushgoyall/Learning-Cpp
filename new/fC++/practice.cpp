@@ -106,9 +106,16 @@ public:
             int count = 1;
             Node *idx = head;
 
+            if (pos == 1)
+            {
+                temp->next = head;
+                head = temp;
+                return;
+            }
+
             while (idx->next != NULL)
             {
-                if (count == pos)
+                if (count + 1 == pos)
                 {
                     Node *prev = idx->next;
                     idx->next = temp;
@@ -132,6 +139,19 @@ public:
             // return;
         }
     }
+
+    void deleteHead()
+    {
+        if (isEmpty())
+        {
+            cout << "Empty List" << endl;
+            return;
+        }
+        Node *curr = head;
+        head = head->next;
+
+        delete curr;
+    }
 };
 
 int main()
@@ -151,7 +171,12 @@ int main()
     // l1.insertAtTail(8);
 
     l1.insertAt(99, 3);
-
+    l1.deleteHead();
+    l1.deleteHead();
+    l1.deleteHead();
+    l1.deleteHead();
+    l1.deleteHead();
+    l1.deleteHead();
     l1.printList();
     cout << "\n"
          << l1.getLength();
