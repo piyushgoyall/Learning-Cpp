@@ -106,13 +106,6 @@ public:
             int count = 1;
             Node *idx = head;
 
-            if (pos == 1)
-            {
-                temp->next = head;
-                head = temp;
-                return;
-            }
-
             while (idx->next != NULL)
             {
                 if (count + 1 == pos)
@@ -123,22 +116,68 @@ public:
                     return;
                 }
                 else
+                {
                     count++;
-
-                idx = idx->next;
+                    idx = idx->next;
+                }
             }
 
-            // while (count != pos)
-            // {
-            //     idx = idx->next;
-            //     count++;
-            // }
-            // Node *prev = idx->next;
-            // idx->next = temp;
-            // temp->next = prev;
-            // return;
+            // If pos is at the end of the list
+            if (count + 1 == pos)
+            {
+                idx->next = temp;
+                temp->next = NULL;
+            }
         }
     }
+
+    // void insertAt(int data, int pos)
+    // {
+    //     if (isEmpty())
+    //     {
+    //         insertAtHead(data);
+    //         return;
+    //     }
+    //     else
+    //     {
+    //         Node *temp = new Node();
+    //         temp->val = data;
+    //         int count = 1;
+    //         Node *idx = head;
+
+    //         if (pos == 1)
+    //         {
+    //             temp->next = head;
+    //             head = temp;
+    //             return;
+    //         }
+
+    //         while (idx->next != NULL)
+    //         {
+    //             if (count == pos - 1)
+    //             {
+    //                 Node *prev = idx->next;
+    //                 idx->next = temp;
+    //                 temp->next = prev;
+    //                 return;
+    //             }
+    //             else
+    //                 count++;
+
+    //             idx = idx->next;
+    //         }
+
+    //         // while (count != pos)
+    //         // {
+    //         //     idx = idx->next;
+    //         //     count++;
+    //         // }
+    //         // Node *prev = idx->next;
+    //         // idx->next = temp;
+    //         // temp->next = prev;
+    //         // return;
+    //     }
+    // }
 
     void deleteHead()
     {
@@ -152,6 +191,23 @@ public:
 
         delete curr;
     }
+
+    // void deleteVal(int val)
+    // {
+    //     if (isEmpty())
+    //     {
+    //         cout << "Empty List" << endl;
+    //         return;
+    //     }
+
+    //     Node *curr = head;
+    //     while (curr != NULL)
+    //     {
+    //         if (curr == val)
+    //         {
+    //         }
+    //     }
+    // }
 };
 
 int main()
@@ -174,9 +230,9 @@ int main()
     l1.deleteHead();
     l1.deleteHead();
     l1.deleteHead();
-    l1.deleteHead();
-    l1.deleteHead();
-    l1.deleteHead();
+    // l1.deleteHead();
+    // l1.deleteHead();
+    // l1.deleteHead();
     l1.printList();
     cout << "\n"
          << l1.getLength();
