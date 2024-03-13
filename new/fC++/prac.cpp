@@ -192,22 +192,61 @@ public:
         delete curr;
     }
 
-    // void deleteVal(int val)
-    // {
-    //     if (isEmpty())
-    //     {
-    //         cout << "Empty List" << endl;
-    //         return;
-    //     }
+    void deleteTail()
+    {
+        if (isEmpty())
+        {
+            cout << "List empty" << endl;
+            return;
+        }
+        Node *curr = head;
+        while (curr->next->next != NULL)
+        {
+            curr = curr->next;
+        }
+        Node *temp = curr->next;
+        curr->next = nullptr;
+        delete temp;
+    }
 
-    //     Node *curr = head;
-    //     while (curr != NULL)
-    //     {
-    //         if (curr == val)
-    //         {
-    //         }
-    //     }
-    // }
+    void deleteVal(int val)
+    {
+        if (isEmpty())
+        {
+            cout << "Empty List" << endl;
+            return;
+        }
+
+        Node *curr = head;
+        while (curr != NULL)
+        {
+            if (curr->next != NULL && (curr->next->val) == val)
+            {
+                Node *temp = curr->next;
+                curr->next = curr->next->next;
+                delete temp;
+                return;
+            }
+            curr = curr->next;
+        }
+    }
+
+    void reverse()
+    {
+        if (isEmpty())
+        {
+            cout << "Empty List" << endl;
+            return;
+        }
+        Node *rev = head;
+        while (rev != nullptr)
+        {
+            insertAtHead(rev->val);
+            rev = rev->next;
+        }
+        printList();
+        cout << endl;
+    }
 };
 
 int main()
@@ -228,14 +267,18 @@ int main()
 
     l1.insertAt(99, 3);
     l1.deleteHead();
-    l1.deleteHead();
-    l1.deleteHead();
     // l1.deleteHead();
     // l1.deleteHead();
     // l1.deleteHead();
+    // l1.deleteHead();
+    // l1.deleteHead();
+    l1.deleteVal(99);
+    l1.deleteTail();
     l1.printList();
-    cout << "\n"
-         << l1.getLength();
+    cout << endl;
+    cout << l1.getLength();
+    cout << endl;
+    l1.reverse();
     return 0;
 }
 
