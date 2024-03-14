@@ -231,22 +231,63 @@ public:
         }
     }
 
-    void reverse()
+    Node *reverse()
     {
         if (isEmpty())
         {
             cout << "Empty List" << endl;
-            return;
+            return 0;
         }
-        Node *rev = head;
-        while (rev != nullptr)
+
+        Node *prev = NULL;
+        Node *curr = head;
+        Node *next = NULL;
+        while (curr != NULL)
         {
-            insertAtHead(rev->val);
-            rev = rev->next;
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        printList();
-        cout << endl;
+        head = prev;
+        return prev;
     }
+
+    // Node *recursiveRev()
+    // {
+    //     if (head == NULL || head->next == NULL)
+    //     {
+    //         return head;
+    //     }
+    //     head = head->next;
+    //     Node *rev = recursiveRev();
+    //     head->next->next = head;
+    //     head->next = NULL;
+
+    //     return rev;
+    // }
+
+    // void Reverse()
+    // {
+
+    // }
+
+    // void reverse()
+    // {
+    //     if (isEmpty())
+    //     {
+    //         cout << "Empty List" << endl;
+    //         return;
+    //     }
+    //     Node *rev = head;
+    //     while (rev != nullptr)
+    //     {
+    //         insertAtHead(rev->val);
+    //         rev = rev->next;
+    //     }
+    //     printList();
+    //     cout << endl;
+    // }
 };
 
 int main()
@@ -279,6 +320,10 @@ int main()
     cout << l1.getLength();
     cout << endl;
     l1.reverse();
+    l1.printList();
+
+    l1.recursiveRev();
+    l1.printList();
     return 0;
 }
 
