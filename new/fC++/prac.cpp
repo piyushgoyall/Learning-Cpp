@@ -29,6 +29,11 @@ public:
         return head;
     }
 
+    void setHead(Node *newHead)
+    {
+        head = newHead;
+    }
+
     bool isEmpty()
     {
         if (head == NULL)
@@ -144,14 +149,12 @@ public:
     //         temp->val = data;
     //         int count = 1;
     //         Node *idx = head;
-
     //         if (pos == 1)
     //         {
     //             temp->next = head;
     //             head = temp;
     //             return;
     //         }
-
     //         while (idx->next != NULL)
     //         {
     //             if (count == pos - 1)
@@ -163,10 +166,8 @@ public:
     //             }
     //             else
     //                 count++;
-
     //             idx = idx->next;
     //         }
-
     //         // while (count != pos)
     //         // {
     //         //     idx = idx->next;
@@ -253,24 +254,30 @@ public:
         return prev;
     }
 
-    // Node *recursiveRev()
-    // {
-    //     if (head == NULL || head->next == NULL)
-    //     {
-    //         return head;
-    //     }
-    //     head = head->next;
-    //     Node *rev = recursiveRev();
-    //     head->next->next = head;
-    //     head->next = NULL;
+    Node *recursiveRev(Node *curr)
+    {
+        if (curr == NULL || curr->next == NULL)
+        {
+            return curr;
+        }
+        Node *rev = recursiveRev(curr->next);
+        curr->next->next = curr;
+        curr->next = NULL;
 
-    //     return rev;
-    // }
+        return rev;
+    }
 
-    // void Reverse()
-    // {
+    bool isLoop()
+    {
+        if(isEmpty() || head->next == NULL)
+        {
+            return false;
+        }
 
-    // }
+        Node *curr = head;
+        Node *nextCurr = head;
+        while(curr)
+    }
 
     // void reverse()
     // {
@@ -319,10 +326,12 @@ int main()
     cout << endl;
     cout << l1.getLength();
     cout << endl;
+
     l1.reverse();
     l1.printList();
+    cout << endl;
 
-    l1.recursiveRev();
+    l1.setHead(l1.recursiveRev(l1.getHead()));
     l1.printList();
     return 0;
 }
