@@ -267,16 +267,56 @@ public:
         return rev;
     }
 
+    void makeCycle(Node *head, int pos)
+    {
+        if (head == nullptr)
+        {
+            cout << "Empty List" << endl;
+            return;
+        }
+
+        Node *temp = head;
+        Node *startNode = nullptr;
+
+        int count = 1;
+        while (temp->next != NULL)
+        {
+            if (count == pos)
+            {
+                startNode = temp;
+            }
+            temp = temp->next;
+            count++;
+        }
+
+        if (pos > count)
+        {
+            cout << "Invalid position" << endl;
+            return;
+        }
+
+        temp->next = startNode;
+    }
+
     bool isLoop()
     {
-        if(isEmpty() || head->next == NULL)
+        if (isEmpty() || head->next == NULL)
         {
             return false;
         }
 
-        Node *curr = head;
-        Node *nextCurr = head;
-        while(curr)
+        Node *slow = head;
+        Node *fast = head;
+        while (fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     // void reverse()
@@ -333,6 +373,9 @@ int main()
 
     l1.setHead(l1.recursiveRev(l1.getHead()));
     l1.printList();
+
+    // l1.makeCycle(l1.getHead(), 3);
+    // cout << l1.isLoop();
     return 0;
 }
 
