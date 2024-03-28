@@ -9,10 +9,10 @@ void update(int **p2)
     // // anything changes? NO
 
     // *p2 = *p2 + 1;
-    // // anything changes?
+    // // anything changes? YES
 
     **p2 = **p2 + 1;
-    // anything changes?
+    // anything changes? YES
 }
 
 int main()
