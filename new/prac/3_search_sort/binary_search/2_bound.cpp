@@ -1,4 +1,5 @@
 // Find the first and the last occurrence of a number in a sorted array.
+// LINK: https://www.naukri.com/code360/problems/first-and-last-position-of-an-element-in-sorted-array_1082549?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2
 
 #include <bits/stdc++.h>
 using namespace std;
