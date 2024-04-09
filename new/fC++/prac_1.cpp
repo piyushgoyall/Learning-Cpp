@@ -258,14 +258,18 @@ public:
             cout << "Empty List" << endl;
             return;
         }
-        Node *rev = head;
-        while (rev != nullptr)
+        Node *prev = nullptr;
+        Node *curr = head;
+        Node *next = nullptr;
+
+        while (curr != nullptr)
         {
-            insertAtHead(rev->val);
-            rev = rev->next;
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        printList();
-        cout << endl;
+        head = prev;
     }
 };
 
@@ -281,7 +285,7 @@ int main()
     l1.insertAtHead(1);
     l1.insertAtHead(0);
 
-    l1.deleteVal(3);
+    // l1.deleteVal(3);
     // l1.deleteHead();
     // // l1.insertAtTail(6);
     // // l1.insertAtTail(7);
@@ -297,9 +301,10 @@ int main()
     // l1.deleteVal(99);
     // l1.deleteTail();
     l1.printList();
-    // cout << endl;
-    // cout << l1.getLength();
-    // cout << endl;
-    // l1.reverse();
+    cout << endl;
+    cout << l1.getLength();
+    cout << endl;
+    l1.reverse();
+    l1.printList();
     return 0;
 }
