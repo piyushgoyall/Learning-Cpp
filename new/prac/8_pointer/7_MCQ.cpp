@@ -4,7 +4,58 @@
 using namespace std;
 int main()
 {
-    
+
+    int first = 100;
+    int *p = &first;
+    int **q = &p;
+    int second = ++(**q);
+    int *r = *q;
+    ++(*r);
+    cout << first << " " << second << endl;
+
+    /*
+
+    int first = 110;
+    int *p = &first;
+    int **q = &p;
+    int second = (**q)++ + 9;
+    cout << first << " " << second << endl;
+
+    */
+
+    /*
+
+    char str[] = "babbar";
+    char *p = str;
+    cout << str[0] << " " << p[0] << endl;
+
+    */
+
+    /*
+
+    char arr[] = "abcde";
+    char *p = &arr[0];
+    p++;
+    cout << p << endl;
+
+    */
+
+    /*
+
+    char arr[] = "abcde";
+    char *p = &arr[0];
+    cout << p << endl;
+
+    */
+
+    /*
+
+    char ch = 'a';
+    char *ptr = &ch;
+    ch++;
+    cout << *ptr << endl;
+
+    */
 
     /*
 
