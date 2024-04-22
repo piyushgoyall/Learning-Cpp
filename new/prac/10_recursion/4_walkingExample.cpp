@@ -22,9 +22,5 @@ int main()
     int src = 1;
 
     reachHome(src, dest);
-
-    int **arr = new int *[row];
-    int *arr = new int[5];
-
     return 0;
 }
