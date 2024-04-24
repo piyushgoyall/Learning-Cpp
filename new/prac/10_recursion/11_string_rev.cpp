@@ -1,3 +1,5 @@
+// Do using only i
+
 #include <bits/stdc++.h>
 using namespace std;
 
