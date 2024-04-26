@@ -1,3 +1,5 @@
+// Solve without j
+
 #include <bits/stdc++.h>
 using namespace std;
 bool chkPalin(string str, int i, int j)
