@@ -128,6 +128,54 @@ void deleteNode(Node *&tail, int val)
     }
 }
 
+bool isCircularList(Node *head)
+{
+    // empty list
+    if (head == NULL)
+    {
+        return true;
+    }
+
+    Node *temp = head->next;
+    while (temp != NULL && temp != head)
+    {
+        temp = temp->next;
+    }
+
+    if (temp == head)
+    {
+        return head;
+    }
+
+    return false;
+}
+
+bool detectLoop(Node *head)
+{
+    if (head == NULL)
+    {
+        return false;
+    }
+
+    map<Node *, bool> visited;
+
+    Node *temp = head;
+
+    while (temp != NULL)
+    {
+        // cycle is present
+        if (visited[temp] == true)
+        {
+            return true;
+        }
+
+        visited[temp] = true;
+        temp = temp->next;
+    }
+
+    return false;
+}
+
 int main()
 {
     Node *tail = NULL;
@@ -154,8 +202,17 @@ int main()
     // insertNode(tail, 3, 4);
     // print(tail);
 
-    deleteNode(tail, 3);
-    print(tail);
+    // deleteNode(tail, 3);
+    // print(tail);
+
+    if (isCircularList)
+    {
+        cout << "Circular LL" << endl;
+    }
+    else
+    {
+        cout << "Not a circular LL" << endl;
+    }
 
     return 0;
 }
