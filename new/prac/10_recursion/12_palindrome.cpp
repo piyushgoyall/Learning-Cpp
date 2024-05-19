@@ -2,15 +2,17 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-bool chkPalin(string str, int i, int j)
+
+bool chkPalin(string &s, int st)
 {
-    if (i > j)
+    if (st > s.length() - 1 - st)
         return true;
-    if (str[i] != str[j])
+
+    if (s[st] != s[(s.length()) - st - 1])
         return false;
 
     else
-        return chkPalin(str, i + 1, j - 1);
+        return chkPalin(s, st + 1);
 }
 
 int main()
@@ -18,15 +20,43 @@ int main()
     string s;
     cin >> s;
 
-    bool isPlain = chkPalin(s, 0, s.length() - 1);
+    bool isPalin = chkPalin(s, 0);
+    if (isPalin)
+        cout << "Palindrome" << endl;
 
-    if (isPlain)
-    {
-        cout << "Palindrome." << endl;
-    }
     else
-    {
-        cout << "Not a plaindrome." << endl;
-    }
+        cout << "Not a Palindrome";
+
     return 0;
 }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// bool chkPalin(string str, int i, int j)
+// {
+//     if (i > j)
+//         return true;
+//     if (str[i] != str[j])
+//         return false;
+
+//     else
+//         return chkPalin(str, i + 1, j - 1);
+// }
+
+// int main()
+// {
+//     string s;
+//     cin >> s;
+
+//     bool isPlain = chkPalin(s, 0, s.length() - 1);
+
+//     if (isPlain)
+//     {
+//         cout << "Palindrome." << endl;
+//     }
+//     else
+//     {
+//         cout << "Not a plaindrome." << endl;
+//     }
+//     return 0;
+// }
