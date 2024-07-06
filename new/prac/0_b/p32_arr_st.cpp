@@ -52,32 +52,41 @@ public:
         return array[top--];
     }
 };
+
 int main()
 {
     int size = 5;
-    Stack<int> *arrayOfStacks = new Stack<int>[size]
-    { Stack<int>(10), Stack<int>(10), Stack<int>(10), Stack<int>(10), Stack<int>(10) };
+    Stack<int> **arrayOfStacks = new Stack<int> *[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        arrayOfStacks[i] = new Stack<int>(10);
+    }
 
     // Push elements into the stacks
-    arrayOfStacks[0].Push(10);
-    arrayOfStacks[0].Push(20);
-    arrayOfStacks[1].Push(30);
-    arrayOfStacks[2].Push(40);
-    arrayOfStacks[2].Push(50);
-    arrayOfStacks[2].Push(60);
+    arrayOfStacks[0]->Push(10);
+    arrayOfStacks[0]->Push(20);
+    arrayOfStacks[1]->Push(30);
+    arrayOfStacks[2]->Push(40);
+    arrayOfStacks[2]->Push(50);
+    arrayOfStacks[2]->Push(60);
 
     // Pop and print elements from the stacks
     for (int i = 0; i < size; i++)
     {
         cout << "Stack " << i << ": ";
-        while (!arrayOfStacks[i].IsEmpty())
+        while (!arrayOfStacks[i]->IsEmpty())
         {
-            cout << arrayOfStacks[i].Pop() << " ";
+            cout << arrayOfStacks[i]->Pop() << " ";
         }
         cout << endl;
     }
 
     // Free up space
+    for (int i = 0; i < size; i++)
+    {
+        delete arrayOfStacks[i];
+    }
     delete[] arrayOfStacks;
 
     return 0;
