@@ -49,8 +49,7 @@ public:
     {
         if (curr == nullptr)
         {
-            root = new Node(val);
-            return root;
+            return new Node(val);
         }
 
         else if (curr->data > val)
