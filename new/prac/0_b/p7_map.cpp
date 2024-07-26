@@ -7,6 +7,11 @@
 
 using namespace std;
 
+// bool compare(pair<int, int> p1, pair<int, int> p2)
+// {
+//     return p1.second > p2.second;
+// }
+
 void countOccurrences(const vector<int> &nums)
 {
     map<int, int> counts;
@@ -19,6 +24,9 @@ void countOccurrences(const vector<int> &nums)
 
     // Copy the map to a vector of pairs
     vector<pair<int, int>> countVector(counts.begin(), counts.end());
+
+    // Sort the vector by values
+    sort(countVector.begin(), countVector.end(), compare);
 
     // Sort the vector by values
     sort(countVector.begin(), countVector.end(), [](const pair<int, int> &a, const pair<int, int> &b)
