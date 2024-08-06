@@ -204,5 +204,23 @@ int main()
     g.addEdge(4, 2);
     g.addEdge(4, 0);
     g.printGraph();
+
+    // Use getArray() to get the array of LinkedLists
+    LinkedList *array = g.getArray();
+    int vertices = g.getVertices();
+
+    // Print adjacency list for each vertex
+    for (int i = 0; i < vertices; i++)
+    {
+        cout << "Vertex " << i << ": ";
+        Node *curr = array[i].getHead();
+        while (curr != nullptr)
+        {
+            cout << curr->data << " ";
+            curr = curr->next;
+        }
+        cout << endl;
+    }
+
     return 0;
 }
