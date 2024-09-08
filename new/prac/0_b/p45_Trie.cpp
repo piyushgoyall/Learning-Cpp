@@ -94,9 +94,31 @@ void Trie::insertNode(string key)
 // Function to search given key in Trie
 bool Trie::searchNode(string key)
 {
+    if (key.empty())
+        return false;
+
+    // using transform() function and ::tolower in STL to convert 'key' to lowercase
+    transform(key.begin(), key.end(), key.begin(), ::tolower);
+    TrieNode *currentNode = root;
+    int index = 0;
+
+    // Iterate the Trie with given character index,
+    // If it is NULL at any point then we stop and return false
+    // We will return true only if we reach leafNode and have traversed the
+    // Trie based on the length of the key
+    for (int level = 0; level < key.length(); level++)
+    {
+        index = getIndex(key[level]);
+
+        if (currentNode->children[index] == NULL)
+            return false;
+        currentNode = currentNode->children[index];
+    }
+    if (currentNode != NULL and currentNode->isEndWord)
+        return true;
+
     return false;
 }
-
 // Function to delete given key from Trie
 bool Trie::deleteNode(string key)
 {
@@ -105,11 +127,9 @@ bool Trie::deleteNode(string key)
 
 int main()
 {
-    /*Trie *t = new Trie();
-  cout << "Index to insert a = " << t->getIndex('a') << endl;
-  cout << "Index to insert t = " << t->getIndex('t') << endl;*/
-
     string keys[9] = {"the", "a", "there", "answer", "any", "by", "bye", "their", "abc"};
+
+    string output[2] = {"Not present in the trie", "Present in the trie"};
 
     Trie *t = new Trie();
 
@@ -124,8 +144,21 @@ int main()
     for (int i = 0; i < 9; i++)
     {
         t->insertNode(keys[i]);
-        cout << "\"" << keys[i] << "\"" << "Inserted." << endl;
     }
+
+    // Search for different keys
+    if (t->searchNode("the") == true)
+        cout << "the --- " << output[1] << endl;
+    else
+        cout << "the --- " << output[0] << endl;
+    if (t->searchNode("these") == true)
+        cout << "these --- " << output[1] << endl;
+    else
+        cout << "these --- " << output[0] << endl;
+    if (t->searchNode("abc") == true)
+        cout << "abc --- " << output[1] << endl;
+    else
+        cout << "abc --- " << output[0] << endl;
 
     return 0;
 }
