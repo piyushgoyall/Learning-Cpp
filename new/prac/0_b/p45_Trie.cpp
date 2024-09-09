@@ -16,15 +16,16 @@ public:
 
 class Trie
 {
-private:
+public:
     TrieNode *root;
 
-public:
     Trie();
     int getIndex(char t);
     void insertNode(string key);
     bool searchNode(string key);
-    bool deleteNode(string key);
+    void deleteNode(string key);
+    bool hasNoChildren(TrieNode *currentNode);
+    bool deleteHelper(string key, TrieNode *currentNode, int length, int level);
 };
 
 TrieNode::TrieNode()
@@ -119,10 +120,91 @@ bool Trie::searchNode(string key)
 
     return false;
 }
-// Function to delete given key from Trie
-bool Trie::deleteNode(string key)
+
+// Helper Function to return true if currentNode does not have any children
+bool Trie::hasNoChildren(TrieNode *currentNode)
 {
-    return false;
+    for (int i = 0; i < ALPHABET_SIZE; i++)
+    {
+        if ((currentNode->children[i]) != NULL)
+            return false;
+    }
+    return true;
+}
+// Recursive function to delete given key
+bool Trie::deleteHelper(string key, TrieNode *currentNode, int length, int level)
+{
+    bool deletedSelf = false;
+
+    if (currentNode == NULL)
+    {
+        cout << "Key does not exist\n";
+        return deletedSelf;
+    }
+
+    // Base Case: If we have reached at the node which points to the alphabet at the end of the key.
+    if (level == length)
+    {
+        // If there are no nodes ahead of this node in this path
+        // Then we can delete this node
+        if (hasNoChildren(currentNode))
+        {
+            delete currentNode; // free the memory
+            currentNode = NULL; // clear the pointer by pointing it to NULL
+            deletedSelf = true;
+        }
+        // If there are nodes ahead of currentNode in this path
+        // Then we cannot delete currentNode. We simply unmark this as leaf
+        else
+        {
+            currentNode->unMarkAsLeaf();
+            deletedSelf = false;
+        }
+    }
+    else
+    {
+        TrieNode *childNode = currentNode->children[getIndex(key[level])];
+        bool childDeleted = deleteHelper(key, childNode, length, level + 1);
+        if (childDeleted)
+        {
+            // Making children pointer also null: since child is deleted
+            currentNode->children[getIndex(key[level])] = NULL;
+            // If currentNode is leaf node that means currntNode is part of another key
+            // and hence we can not delete this node and it's parent path nodes
+            if (currentNode->isEndWord)
+            {
+                deletedSelf = false;
+            }
+            // If childNode is deleted but if currentNode has more children then currentNode must be part of another key.
+            // So, we cannot delete currenNode
+            else if (!hasNoChildren(currentNode))
+            {
+                deletedSelf = false;
+            }
+            // Else we can delete currentNode
+            else
+            {
+                currentNode = NULL;
+                deletedSelf = true;
+            }
+        }
+        else
+        {
+            deletedSelf = false;
+        }
+    }
+    return deletedSelf;
+}
+
+// Function to delete given key from Trie
+void Trie::deleteNode(string key)
+{
+    if ((root == NULL) || (key.empty()))
+    {
+        cout << "Null key or Empty trie error\n";
+        return;
+    }
+    deleteHelper(key, root, key.length(), 0);
 }
 
 int main()
@@ -155,6 +237,13 @@ int main()
         cout << "these --- " << output[1] << endl;
     else
         cout << "these --- " << output[0] << endl;
+    if (t->searchNode("abc") == true)
+        cout << "abc --- " << output[1] << endl;
+    else
+        cout << "abc --- " << output[0] << endl;
+
+    t->deleteNode("abc");
+    cout << "Deleted key \"abc\"" << endl;
     if (t->searchNode("abc") == true)
         cout << "abc --- " << output[1] << endl;
     else
