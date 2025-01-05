@@ -1,9 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <string>
-#include <algorithm>
-#include <sstream>
+// Finding the most frequent path in a directed acyclic graph(DAG).
+
+#include <bits/stdc++.h>
 using namespace std;
 
 class Graph
